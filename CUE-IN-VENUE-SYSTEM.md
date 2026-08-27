@@ -70,6 +70,38 @@ Entry paths:
 2. Nearby discovery: see/scan window profile → learn who they are and whether there is compatibility.
 3. Physical encounter: see wristband/watch status → understand approachability → S.W.A.P. provides an icebreaker and persistent connection.
 
+## Compatibility + boundary doctrine
+Compatibility is an aid to interaction, not permission to interact.
+
+Rules:
+- preferences can increase or decrease a compatibility score
+- hard boundaries are gates, not weighted preferences
+- a hard-boundary conflict must override a high numerical compatibility score
+- the UI should clearly distinguish **compatible interests** from **boundary conflicts** instead of hiding everything behind one percentage
+- no compatibility result may imply consent, availability, or permission; current visible status and the people involved remain authoritative
+- future compatibility weighting may consider factors such as pacing, communication style, discretion, experience/comfort level, and relationship structure only when users choose to provide them
+- keep the profile compact: do not turn compatibility into a giant dating questionnaire
+
+Product rule: **Preferences describe fit. Boundaries define limits. Status communicates current approachability. None of them substitutes for consent.**
+
+## Information visibility
+Sensitive profile information should support audience controls where appropriate:
+- Public
+- S.W.A.P.s only
+- Private
+
+Apply selective reveal to sensitive information rather than making the entire information profile either public or hidden. The goal is useful in-person context without unnecessary exposure.
+
+## Real-world trust direction
+A future **Verified In Person** signal may be earned through legitimate system events such as an authenticated S.W.A.P. or venue/event Cue-In interaction.
+
+Keep this lightweight:
+- verification means a real-world interaction was confirmed, not that Unspoken Cues endorses the person
+- do not rank people by popularity
+- do not create sexual-performance ratings
+- do not expose private interaction histories
+- do not let venues inspect individual private activity
+
 ## Wearable design doctrine
 The physical status signal remains the center of Unspoken Cues. Build it around these rules:
 - **Instant readability:** the current status must be understandable at a glance and from normal social distance.
@@ -112,6 +144,6 @@ A future host dashboard can show:
 This gives venues measurable value without requiring Unspoken Cues to become an event-management platform.
 
 ## Strategic boundary
-Do not copy full event operations from competitors unless needed. Unspoken Cues does not need to own ticketing, generic event discovery, raffles, polls, big-screen entertainment, or a pre-event dating feed to deliver its core value.
+Do not copy full event operations from competitors unless needed. Unspoken Cues does not need to own ticketing, generic event discovery, raffles, polls, big-screen entertainment, rankings, timed dating lounges, or a pre-event dating feed to deliver its core value.
 
 The product should own the **last mile of in-person interaction**: knowing who is around, understanding whether interaction makes sense, reducing approach uncertainty, creating the conversation, and preserving the connection afterward.
