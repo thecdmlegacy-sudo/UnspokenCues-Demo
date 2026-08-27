@@ -84,6 +84,27 @@ Rules:
 
 Product rule: **Preferences describe fit. Boundaries define limits. Status communicates current approachability. None of them substitutes for consent.**
 
+## Mutual Interaction Check
+Compatibility can optionally lead into a private, two-sided interaction check when two people/couples want an additional signal before approaching or progressing.
+
+Target flow:
+**See status → Scan/tap → Read profile + compatibility → Mutual Interaction Check → Approach → S.W.A.P. → Save.**
+
+Interaction Check rules:
+- each side answers privately
+- initial lightweight choices: **Interested / Maybe / Not interested**
+- never reveal one person's positive answer unless the other side also provides a qualifying positive response
+- **Not interested** remains private; the other person receives no rejection detail or negative rating
+- a mutual positive result may display a simple private signal such as **Mutual Cue**
+- **Maybe** must not be represented as consent or permission; product behavior for Maybe/Interested combinations should remain conservative
+- hard-boundary conflicts override the Interaction Check and prevent a positive match result
+- current Red/No status prevents a positive interaction result while that status is active
+- changing status or boundaries can invalidate an earlier result when appropriate
+- no public counters, popularity scores, rejection counts, or venue access to individual responses
+- an interaction result is an aid to starting a conversation, never consent to physical or sexual activity
+
+The feature should reduce rejection anxiety and uncertainty without turning Unspoken Cues into swipe-based dating. It is contextual to an in-person encounter or an already-established S.W.A.P. connection, not a public people-discovery feed.
+
 ## Information visibility
 Sensitive profile information should support audience controls where appropriate:
 - Public
@@ -128,7 +149,7 @@ Track:
 - interaction/compatibility checks as aggregate counts only
 - return attendance across events
 
-Do **not** expose private preferences, boundaries, compatibility details, private card collections, or individual interaction histories to venues.
+Do **not** expose private preferences, boundaries, compatibility details, Mutual Interaction Check responses/results, private card collections, or individual interaction histories to venues.
 
 ## Venue dashboard direction
 A future host dashboard can show:
