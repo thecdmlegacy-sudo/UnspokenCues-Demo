@@ -4,6 +4,12 @@
   "tagline": "The Disappearing Act",
   "bio": "Here for a good time—until we disappear. C&D are all about good vibes, genuine connections, and letting the night take them wherever it goes. If you're looking for us, you better catch us before we leave without saying goodbye.",
   "status": "available",
+  "cueIn": {
+    "active": true,
+    "venue": "Secrets Hideaway",
+    "label": "CUE-IN",
+    "verified": true
+  },
   "preferences": ["MFM", "FMF", "Couples"],
   "boundaries": ["Same Room", "Together Only", "Conversation First"],
   "website": "https://unspokencues.com",
@@ -20,5 +26,5 @@
   "cardBackImage": "",
   "unspokenLogo": "",
   "swapLogo": "",
-  "updatedAt": "2026-08-26T21:00:00Z"
+  "updatedAt": "2026-08-27T22:36:00Z"
 }
