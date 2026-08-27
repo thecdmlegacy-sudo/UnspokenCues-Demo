@@ -10,6 +10,14 @@
     "label": "CUE-IN",
     "verified": true
   },
+  "compatibility": {
+    "demoScore": 87,
+    "hardBoundaryConflict": false
+  },
+  "interactionCheck": {
+    "enabled": true,
+    "demoOtherSide": "interested"
+  },
   "preferences": ["MFM", "FMF", "Couples"],
   "boundaries": ["Same Room", "Together Only", "Conversation First"],
   "website": "https://unspokencues.com",
@@ -26,5 +34,5 @@
   "cardBackImage": "",
   "unspokenLogo": "",
   "swapLogo": "",
-  "updatedAt": "2026-08-27T22:36:00Z"
+  "updatedAt": "2026-08-27T23:10:00Z"
 }
