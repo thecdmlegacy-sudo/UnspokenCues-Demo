@@ -39,6 +39,17 @@ Entry paths:
 2. Nearby discovery: see/scan window profile → learn who they are and whether there is compatibility.
 3. Physical encounter: see wristband/watch status → understand approachability → S.W.A.P. provides an icebreaker and persistent connection.
 
+## Wearable design doctrine
+The physical status signal remains the center of Unspoken Cues. Build it around these rules:
+- **Instant readability:** the current status must be understandable at a glance and from normal social distance.
+- **Persistent visibility:** prioritize display/lighting approaches that can remain visible without unnecessary battery drain.
+- **Manual control wins:** the wearer explicitly controls the status other people see.
+- **Future smart suggestions are private:** biometrics or contextual sensing may eventually suggest a status to the wearer, but must never automatically broadcast availability or consent.
+- **Wearability matters:** future hardware should support attractive, interchangeable/customizable band options so it feels like something guests choose to wear rather than event equipment.
+- **Keep the four-state language:** Green, Yellow, Red, and Purple remain the Unspoken Cues status system.
+
+Do not add fitness tracking or biometric complexity to the current product merely because wearable competitors use it. Those features are only worth considering if they directly improve the in-person interaction problem.
+
 ## Venue analytics
 Add privacy-preserving aggregate analytics for participating venues/events. This is host value, not the consumer experience.
 
