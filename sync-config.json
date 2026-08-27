@@ -1,0 +1,6 @@
+{
+  "profileId": "cd",
+  "statusEndpoint": "",
+  "pollSeconds": 10,
+  "enabled": false
+}
