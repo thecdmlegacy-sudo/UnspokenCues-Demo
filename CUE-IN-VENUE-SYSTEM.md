@@ -39,8 +39,32 @@ Product rule: **Preferences describe fit. Boundaries define limits. Status commu
 ## Mutual Interaction Check
 Optional private two-sided check: **Interested / Maybe / Not interested**. Never expose an unmatched positive response or rejection detail. Mutual positives may produce a private **Mutual Cue**. Hard-boundary conflicts and current Red/No status prevent positive results. No popularity/rejection counters. This is an aid to conversation, never consent.
 
+### Discreet haptic confirmation
+Wearable research shows that vibration can deliver information privately without forcing the wearer to stare at a screen. Unspoken Cues should use haptics only for **private feedback to the wearer**, not to infer or broadcast social intent.
+
+Product direction:
+- a watch or future electronic Cue wearable may give a short, distinct vibration for a confirmed Mutual Cue, authenticated S.W.A.P., or important status/sync acknowledgement
+- haptic patterns should be few, learnable, and user-configurable/disableable
+- do not vibrate simply because a compatible stranger is nearby; that would push the system toward automated matchmaking
+- do not use sensors to automatically decide that someone wants interaction
+- private haptic feedback must never change the visible public status unless the wearer explicitly changes it
+
+Independent design rationale: accessibility and social-computing wearables demonstrate that subtle tactile feedback can preserve attention on the face-to-face interaction. Unspoken Cues uses that principle to keep the phone out of the way while preserving explicit human control.
+
 ## Information visibility
 Sensitive information supports Public / S.W.A.P.s only / Private. Event-scoped visibility may temporarily reveal selected information while Cue'd-In, automatically reverting when presence expires.
+
+## Interaction privacy doctrine
+Research and commercial event wearables can automatically log proximity, movement, conversations, or encounters. Unspoken Cues should deliberately avoid making passive surveillance the default.
+
+Rules:
+- proximity alone does not create a S.W.A.P., connection, interest signal, or Verified In Person record
+- meaningful person-to-person records require an explicit user action or mutually authenticated system event
+- do not record audio or continuously track conversations for the consumer interaction product
+- venue analytics remain aggregate and privacy-preserving
+- if future proximity technology is used, its purpose should be narrowly scoped to an explicitly enabled interaction feature and designed with clear consent and expiration
+
+Independent design rationale: the product should assist human connection without secretly measuring the people involved. Explicit interaction events are more aligned with the Unspoken Cues trust model than automatic social surveillance.
 
 ## Real-world trust direction
 Future **Verified In Person** can be earned through legitimate authenticated real-world system events. A **Verified S.W.A.P.** means both sides completed a mutual exchange; merely viewing or saving a card does not have to imply an in-person meeting. Do not create popularity or sexual-performance ratings.
