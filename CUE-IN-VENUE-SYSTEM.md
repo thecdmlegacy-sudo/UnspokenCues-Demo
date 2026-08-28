@@ -8,163 +8,77 @@ Cue-In answers a specific question that the physical wristband, watch, and windo
 ## Cue-In
 A participating venue/event has a unique Cue-In QR. Scanning it activates event presence on the user's existing Unspoken Cues profile. It does not create another profile.
 
-When active, the profile may display:
-- CUE-IN
-- venue/event name
-- currently here / event-active state
-- optional attendee verification
-
-When Cue-In expires or the user checks out, the profile returns to normal and no longer implies physical presence.
+When active, the profile may display CUE-IN, venue/event name, current event-active state, and optional attendee verification. When Cue-In expires or the user checks out, the profile returns to normal and no longer implies physical presence.
 
 ### Privacy
-Presence visibility must be user-controlled:
-- Everyone
-- S.W.A.P.s only
-- Hidden
-
-Default product direction: S.W.A.P.s only, because the strongest use case is rediscovering people already met without turning Unspoken Cues into a dating-site people search.
+Presence visibility must be user-controlled: Everyone / S.W.A.P.s only / Hidden. Default product direction: S.W.A.P.s only.
 
 ## Guest Mode
-Participating venues/events should be able to onboard guests without forcing a full account or app installation before Unspoken Cues becomes useful.
+Target flow: **Get band/QR → Scan → Minimal setup → Cue-In → Use immediately → S.W.A.P. → Keep profile or let it expire.**
 
-Target flow:
-**Get band/QR → Scan → Minimal setup → Cue-In → Use immediately → S.W.A.P. → Keep profile or let it expire.**
-
-Guest Mode principles:
-- browser-first entry with no mandatory app download
-- no full account required for temporary event participation
-- collect only the minimum information needed for the Unspoken Cues interaction layer
-- let the guest select their current status and the limited preferences/boundaries needed for the experience
-- activate Cue-In for the participating venue/event
-- allow the temporary guest identity to receive and make S.W.A.P. connections during the event
-- offer **Keep my profile** afterward so a guest can convert the temporary identity into a persistent Unspoken Cues/S.W.A.P. identity
-- if the guest does not keep it, expire/remove the temporary event presence and follow the defined retention/privacy policy
-
-Guest Mode is intended to reduce venue adoption friction, not create a second class of permanent profile.
+Browser-first; no mandatory app; minimum information; current status plus limited preferences/boundaries; temporary identities can S.W.A.P.; offer Keep my profile afterward.
 
 ## Venue band activation
-A participating venue may maintain a batch/pool of pre-assigned guest band or QR identities ready for activation.
-
-Operational direction:
-- each physical band/QR has a unique system identifier
-- venue can see available, activated, and expired/reset inventory
-- guest activates the identity by scanning it and completing Guest Mode
-- the activated band maps to that guest's temporary or persistent Unspoken Cues identity for the event/stay
-- checkout/expiration ends venue presence
-- reusable hardware may be reset and returned to inventory when the hardware/security model safely supports reuse
-
-The physical identifier should simplify onboarding; it must not replace the visible person-to-person status function that differentiates the Unspoken Cues wearable.
+Participating venues may maintain pre-assigned guest band/QR identities. Each has a unique system identifier; venue sees available/activated/expired inventory; checkout/expiration ends venue presence. The physical identifier simplifies onboarding but never replaces the visible person-to-person status function.
 
 ## Existing-connection discovery
-A user can open a previously collected S.W.A.P. card from their Digital Binder. If that person has Cue-In active and permits the viewer to see it, the card/profile indicates that they are currently at the same participating venue/event.
+A previously collected S.W.A.P. card can indicate that its person is currently Cue'd-In at the same participating venue when privacy settings permit it.
 
-This creates the return loop:
 **Meet → S.W.A.P. → Save → Return later → Cue-In → Rediscover.**
 
 ## In-room interaction loop
-Unspoken Cues remains physical-first:
 **Already here → Discover → Read the cues → Approach → S.W.A.P. → Remember → Rediscover next time.**
 
-Entry paths:
-1. Previous connection: open collected S.W.A.P. card → Cue-In says they are around.
-2. Nearby discovery: see/scan window profile → learn who they are and whether there is compatibility.
-3. Physical encounter: see wristband/watch status → understand approachability → S.W.A.P. provides an icebreaker and persistent connection.
+Entry paths: previous S.W.A.P. + Cue-In; nearby window-profile discovery; physical wristband/watch status.
 
 ## Compatibility + boundary doctrine
-Compatibility is an aid to interaction, not permission to interact.
+Preferences can affect compatibility; hard boundaries are gates; boundary conflicts override numerical compatibility. Compatibility never implies consent, availability, or permission. Keep the profile compact rather than becoming a dating questionnaire.
 
-Rules:
-- preferences can increase or decrease a compatibility score
-- hard boundaries are gates, not weighted preferences
-- a hard-boundary conflict must override a high numerical compatibility score
-- the UI should clearly distinguish **compatible interests** from **boundary conflicts** instead of hiding everything behind one percentage
-- no compatibility result may imply consent, availability, or permission; current visible status and the people involved remain authoritative
-- future compatibility weighting may consider factors such as pacing, communication style, discretion, experience/comfort level, and relationship structure only when users choose to provide them
-- keep the profile compact: do not turn compatibility into a giant dating questionnaire
-
-Product rule: **Preferences describe fit. Boundaries define limits. Status communicates current approachability. None of them substitutes for consent.**
+Product rule: **Preferences describe fit. Boundaries define limits. Status communicates current approachability. None substitutes for consent.**
 
 ## Mutual Interaction Check
-Compatibility can optionally lead into a private, two-sided interaction check when two people/couples want an additional signal before approaching or progressing.
-
-Target flow:
-**See status → Scan/tap → Read profile + compatibility → Mutual Interaction Check → Approach → S.W.A.P. → Save.**
-
-Interaction Check rules:
-- each side answers privately
-- initial lightweight choices: **Interested / Maybe / Not interested**
-- never reveal one person's positive answer unless the other side also provides a qualifying positive response
-- **Not interested** remains private; the other person receives no rejection detail or negative rating
-- a mutual positive result may display a simple private signal such as **Mutual Cue**
-- **Maybe** must not be represented as consent or permission; product behavior for Maybe/Interested combinations should remain conservative
-- hard-boundary conflicts override the Interaction Check and prevent a positive match result
-- current Red/No status prevents a positive interaction result while that status is active
-- changing status or boundaries can invalidate an earlier result when appropriate
-- no public counters, popularity scores, rejection counts, or venue access to individual responses
-- an interaction result is an aid to starting a conversation, never consent to physical or sexual activity
-
-The feature should reduce rejection anxiety and uncertainty without turning Unspoken Cues into swipe-based dating. It is contextual to an in-person encounter or an already-established S.W.A.P. connection, not a public people-discovery feed.
+Optional private two-sided check: **Interested / Maybe / Not interested**. Never expose an unmatched positive response or rejection detail. Mutual positives may produce a private **Mutual Cue**. Hard-boundary conflicts and current Red/No status prevent positive results. No popularity/rejection counters. This is an aid to conversation, never consent.
 
 ## Information visibility
-Sensitive profile information should support audience controls where appropriate:
-- Public
-- S.W.A.P.s only
-- Private
-
-Apply selective reveal to sensitive information rather than making the entire information profile either public or hidden. The goal is useful in-person context without unnecessary exposure.
+Sensitive information supports Public / S.W.A.P.s only / Private. Event-scoped visibility may temporarily reveal selected information while Cue'd-In, automatically reverting when presence expires.
 
 ## Real-world trust direction
-A future **Verified In Person** signal may be earned through legitimate system events such as an authenticated S.W.A.P. or venue/event Cue-In interaction.
+Future **Verified In Person** can be earned through legitimate authenticated real-world system events. A **Verified S.W.A.P.** means both sides completed a mutual exchange; merely viewing or saving a card does not have to imply an in-person meeting. Do not create popularity or sexual-performance ratings.
 
-Keep this lightweight:
-- verification means a real-world interaction was confirmed, not that Unspoken Cues endorses the person
-- do not rank people by popularity
-- do not create sexual-performance ratings
-- do not expose private interaction histories
-- do not let venues inspect individual private activity
+## S.W.A.P. encounter memory
+A collected/verified S.W.A.P. may privately preserve lightweight encounter context such as venue/event and date so the owner can remember where the connection came from. This information belongs to the collector and is not venue-visible.
 
 ## Wearable design doctrine
-The physical status signal remains the center of Unspoken Cues. Build it around these rules:
-- **Instant readability:** the current status must be understandable at a glance and from normal social distance.
-- **Persistent visibility:** prioritize display/lighting approaches that can remain visible without unnecessary battery drain.
-- **Manual control wins:** the wearer explicitly controls the status other people see.
-- **Future smart suggestions are private:** biometrics or contextual sensing may eventually suggest a status to the wearer, but must never automatically broadcast availability or consent.
-- **Wearability matters:** future hardware should support attractive, interchangeable/customizable band options so it feels like something guests choose to wear rather than event equipment.
-- **Keep the four-state language:** Green, Yellow, Red, and Purple remain the Unspoken Cues status system.
+- **Glance first, details second:** the wearable communicates the most important current cue without requiring a phone; scan/tap reveals deeper information.
+- **Instant readability:** current status understandable from normal social distance.
+- **Persistent visibility:** prioritize efficient always-visible lighting/display approaches.
+- **Manual control wins:** wearer explicitly controls the broadcast status and can change it instantly as comfort changes.
+- **Future smart suggestions are private:** sensing may suggest, never auto-broadcast availability or consent.
+- **Wearability matters:** attractive interchangeable/customizable options.
+- **Four-state language:** Green, Yellow, Red, Purple remain the Unspoken Cues states.
 
-Do not add fitness tracking or biometric complexity to the current product merely because wearable competitors use it. Those features are only worth considering if they directly improve the in-person interaction problem.
+### Universal cue language + accessibility
+Competitive/event research repeatedly shows that venue-specific color meanings vary and can create ambiguity. Unspoken Cues should solve that problem rather than inherit it.
+
+Product direction:
+- the core four Unspoken Cues states keep the same meaning across participating venues instead of allowing every venue to redefine the colors
+- venues may explain the system, but should not remap its core status meanings
+- never rely on color alone: pair each state with a consistent symbol/icon and digital text label so the system remains understandable for color-vision differences, low light, unfamiliar guests, and international users
+- onboarding/venue signage should provide a fast legend for first-time users
+- if no valid cue is visible or readable, the system must not imply permission or availability
+- a visible cue is a communication aid, not consent
+
+Independent design rationale: existing event color systems demonstrate the value of at-a-glance communication, but inconsistent local meanings and color-only encoding create confusion. Unspoken Cues should provide one portable language that follows the user across participating environments.
+
+Do not add fitness/biometric complexity unless it directly improves the in-person interaction problem.
+
+## Venue information integration
+Where a participating venue already collects relevant guest information, future integrations may—with explicit user permission—pre-fill compatible profile fields rather than forcing duplicate entry. Venue data never automatically becomes publicly visible.
 
 ## Venue analytics
-Add privacy-preserving aggregate analytics for participating venues/events. This is host value, not the consumer experience.
-
-Track:
-- total Cue-Ins
-- unique Cue-Ins
-- repeat attendees
-- active attendees now
-- guest-band inventory: available/activated/expired where applicable
-- Guest Mode activation/conversion rate
-- S.W.A.P.s made at the event
-- number of attendees using Unspoken Cues
-- interaction/compatibility checks as aggregate counts only
-- return attendance across events
-
-Do **not** expose private preferences, boundaries, compatibility details, Mutual Interaction Check responses/results, private card collections, or individual interaction histories to venues.
-
-## Venue dashboard direction
-A future host dashboard can show:
-- Live attendance count
-- Total/unique Cue-Ins
-- New vs returning attendees
-- Guest Mode activations and conversion rate
-- Band/QR inventory status
-- S.W.A.P. activity
-- Engagement rate
-- Repeat-event rate
-
-This gives venues measurable value without requiring Unspoken Cues to become an event-management platform.
+Privacy-preserving aggregate analytics: total/unique Cue-Ins, repeat attendees, active attendees, guest-band inventory, Guest Mode conversion, S.W.A.P. counts, aggregate interaction/compatibility checks, return attendance. Do not expose private preferences, boundaries, compatibility details, Interaction Check responses, collections, or individual histories.
 
 ## Strategic boundary
-Do not copy full event operations from competitors unless needed. Unspoken Cues does not need to own ticketing, generic event discovery, raffles, polls, big-screen entertainment, rankings, timed dating lounges, or a pre-event dating feed to deliver its core value.
+Unspoken Cues is not a dating site and does not need to own ticketing, generic event discovery, feeds, remote stranger browsing, swiping, matchmaking, raffles, polls, rankings, timed dating lounges, or full event operations.
 
-The product should own the **last mile of in-person interaction**: knowing who is around, understanding whether interaction makes sense, reducing approach uncertainty, creating the conversation, and preserving the connection afterward.
+The product owns the **last mile of in-person interaction**: knowing who is around, understanding whether interaction makes sense, reducing approach uncertainty, creating the conversation, and preserving the connection afterward.
