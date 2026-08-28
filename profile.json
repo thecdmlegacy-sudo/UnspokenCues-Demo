@@ -4,11 +4,15 @@
   "tagline": "The Disappearing Act",
   "bio": "Here for a good time—until we disappear. C&D are all about good vibes, genuine connections, and letting the night take them wherever it goes. If you're looking for us, you better catch us before we leave without saying goodbye.",
   "status": "available",
+  "statusSymbol": "●",
   "cueIn": {
     "active": true,
     "venue": "Secrets Hideaway",
     "label": "CUE-IN",
-    "verified": true
+    "verified": true,
+    "visibility": "swaps_only",
+    "eventScoped": true,
+    "autoExpire": true
   },
   "compatibility": {
     "demoScore": 87,
@@ -16,7 +20,49 @@
   },
   "interactionCheck": {
     "enabled": true,
-    "demoOtherSide": "interested"
+    "demoOtherSide": "interested",
+    "private": true
+  },
+  "privacy": {
+    "defaultAudience": "swaps_only",
+    "eventScopedVisibility": true,
+    "temporaryRevealLabel": "Visible while I'm here"
+  },
+  "verification": {
+    "verifiedInPerson": true,
+    "verifiedSwap": true,
+    "label": "Verified S.W.A.P."
+  },
+  "swapNearby": {
+    "enabled": true,
+    "connectionsOnly": true,
+    "respectCueInPrivacy": true,
+    "watchHaptic": true,
+    "label": "S.W.A.P. Nearby"
+  },
+  "encounterMemory": {
+    "enabled": true,
+    "privateToCollector": true,
+    "venue": "Secrets Hideaway",
+    "dateLabel": "Aug 2026"
+  },
+  "guestMode": {
+    "supported": true,
+    "browserFirst": true,
+    "keepProfileOption": true
+  },
+  "identity": {
+    "qrEnabled": true,
+    "nfcReady": true,
+    "sameIdentityTarget": true
+  },
+  "accessibility": {
+    "colorPlusSymbol": true,
+    "universalCueLanguage": true
+  },
+  "offline": {
+    "physicalStatusIndependent": true,
+    "digitalGracefulDegradation": true
   },
   "preferences": ["MFM", "FMF", "Couples"],
   "boundaries": ["Same Room", "Together Only", "Conversation First"],
@@ -25,7 +71,7 @@
   "facebookLS": "https://www.facebook.com/share/1c7LSUXRmL/",
   "instagram": "",
   "qrTarget": "https://thecdmlegacy-sudo.github.io/UnspokenCues-Demo/",
-  "qrLabel": "Scan to connect",
+  "qrLabel": "Scan or tap to connect",
   "cardNumber": "001-F2",
   "cardTitle": "The Disappearing Act",
   "cardTagline": "We came, we saw, we left.",
@@ -34,5 +80,5 @@
   "cardBackImage": "",
   "unspokenLogo": "",
   "swapLogo": "",
-  "updatedAt": "2026-08-27T23:10:00Z"
+  "updatedAt": "2026-08-27T23:55:00Z"
 }
