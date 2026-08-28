@@ -24,10 +24,12 @@ public class MainActivity extends Activity {
         s.setBuiltInZoomControls(false);
         s.setDisplayZoomControls(false);
         s.setMediaPlaybackRequiresUserGesture(false);
+        s.setCacheMode(WebSettings.LOAD_NO_CACHE);
 
+        webView.clearCache(true);
         webView.setWebViewClient(new WebViewClient());
         webView.setWebChromeClient(new WebChromeClient());
-        webView.loadUrl("https://thecdmlegacy-sudo.github.io/UnspokenCues-Demo/app.html");
+        webView.loadUrl("https://thecdmlegacy-sudo.github.io/UnspokenCues-Demo/app.html?phone=v18");
     }
 
     @Override
