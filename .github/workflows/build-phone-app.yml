@@ -27,14 +27,14 @@ jobs:
         working-directory: phone-app
         run: gradle :app:assembleDebug --stacktrace
       - name: Rename APK
-        run: cp phone-app/app/build/outputs/apk/debug/app-debug.apk Unspoken-Cues-Phone-v2.apk
+        run: cp phone-app/app/build/outputs/apk/debug/app-debug.apk Unspoken-Cues-Phone-v21.apk
       - uses: actions/upload-artifact@v4
         with:
-          name: Unspoken-Cues-Phone-v2
-          path: Unspoken-Cues-Phone-v2.apk
+          name: Unspoken-Cues-Phone-v21
+          path: Unspoken-Cues-Phone-v21.apk
       - name: Publish latest APK
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete phone-app-latest --cleanup-tag -y || true
-          gh release create phone-app-latest Unspoken-Cues-Phone-v2.apk --title 'Unspoken Cues Phone App v2' --notes 'Premium phone app build.'
+          gh release create phone-app-latest Unspoken-Cues-Phone-v21.apk --title 'Unspoken Cues Phone App v21' --notes 'Correct phone package, premium five-screen navigation, Cue In/Out, compatibility, S.W.A.P. collection, binder, profile, QR and sharing.'
