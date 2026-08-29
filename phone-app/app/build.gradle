@@ -3,14 +3,14 @@ plugins {
 }
 
 android {
-    namespace 'com.unspokencues.phone'
+    namespace 'com.unspokencues.mobile'
     compileSdk 35
 
     defaultConfig {
-        applicationId 'com.unspokencues.phone'
+        applicationId 'com.unspokencues.mobile'
         minSdk 26
         targetSdk 35
-        versionCode 23
-        versionName '3.7.0-phone'
+        versionCode 24
+        versionName '3.8.0-phone'
     }
 }
