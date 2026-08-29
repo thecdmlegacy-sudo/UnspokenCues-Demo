@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
         webView.clearCache(true);
         webView.setWebViewClient(new WebViewClient());
         webView.setWebChromeClient(new WebChromeClient());
-        webView.loadUrl("https://thecdmlegacy-sudo.github.io/UnspokenCues-Demo/app-v20.html?phone=v20");
+        webView.loadUrl("https://thecdmlegacy-sudo.github.io/UnspokenCues-Demo/app-v20.html?phone=v21");
     }
 
     @Override
