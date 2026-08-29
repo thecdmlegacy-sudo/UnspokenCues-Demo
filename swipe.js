@@ -13,6 +13,20 @@
   else if(path.endsWith('/admin.html')) extra.src='admin-cloud.js?ts='+Date.now();
   if(extra.src) document.head.appendChild(extra);
 
+  if(path.endsWith('/admin.html')) {
+    document.addEventListener('click', e => {
+      const b=e.target.closest('.pick');
+      if(!b) return;
+      const parent=b.closest('#prefChoices,#boundaryChoices');
+      if(!parent) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      const type=parent.id==='prefChoices'?'p':'b';
+      const value=b.textContent.replace(/^✓\s*/,'').trim();
+      if(typeof toggle==='function') toggle(type,value);
+    }, true);
+  }
+
   let startX = 0, startY = 0, startAt = 0;
   document.addEventListener('touchstart', e => {
     if (e.touches.length !== 1) return;
