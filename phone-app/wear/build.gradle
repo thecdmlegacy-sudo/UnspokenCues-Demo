@@ -1,0 +1,21 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.unspokencues.wear'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.unspokencues.wear'
+        minSdk 26
+        targetSdk 35
+        versionCode 1
+        versionName '1.0.0'
+    }
+}
+
+dependencies {
+    implementation 'com.google.android.gms:play-services-wearable:19.0.0'
+    implementation 'androidx.activity:activity:1.9.3'
+}
