@@ -25,11 +25,12 @@ public class MainActivity extends Activity implements MessageClient.OnMessageRec
     private WebView webView;
     private ValueCallback<Uri[]> fileCallback;
     private PermissionRequest pendingPermission;
+    private volatile boolean wearConnected = false;
 
     public class WearBridge {
         @JavascriptInterface public void sendStatus(String status){ sendToWatch("/uc/status", status); }
         @JavascriptInterface public void sendCue(String state){ sendToWatch("/uc/cue-state", state); }
-        @JavascriptInterface public boolean isConnected(){ return true; }
+        @JavascriptInterface public boolean isConnected(){ return wearConnected; }
     }
 
     @Override protected void onCreate(Bundle savedInstanceState) {
@@ -55,23 +56,34 @@ public class MainActivity extends Activity implements MessageClient.OnMessageRec
                 });
             }
         });
-        webView.loadUrl("https://thecdmlegacy-sudo.github.io/UnspokenCues-Demo/app.html?phone=v26");
+        webView.loadUrl("https://thecdmlegacy-sudo.github.io/UnspokenCues-Demo/app.html?phone=v27");
     }
 
     private void sendToWatch(String path,String msg){
-        Wearable.getNodeClient(this).getConnectedNodes().addOnSuccessListener(nodes->{for(Node n:nodes) Wearable.getMessageClient(this).sendMessage(n.getId(),path,msg.getBytes(StandardCharsets.UTF_8)); updateConnection(!nodes.isEmpty());});
+        Wearable.getNodeClient(this).getConnectedNodes().addOnSuccessListener(nodes->{
+            wearConnected = !nodes.isEmpty();
+            for(Node n:nodes) Wearable.getMessageClient(this).sendMessage(n.getId(),path,msg.getBytes(StandardCharsets.UTF_8));
+            updateConnection(wearConnected);
+        }).addOnFailureListener(e->{ wearConnected=false; updateConnection(false); });
     }
-    private void updateConnection(boolean connected){ if(webView!=null) webView.post(()->webView.evaluateJavascript("window.UCWatchConnection&&window.UCWatchConnection("+connected+")",null)); }
+    private void updateConnection(boolean connected){ wearConnected=connected; if(webView!=null) webView.post(()->webView.evaluateJavascript("window.UCWatchConnection&&window.UCWatchConnection("+connected+")",null)); }
     private void js(String code){ if(webView!=null) webView.post(()->webView.evaluateJavascript(code,null)); }
     @Override public void onMessageReceived(MessageEvent e){
         String msg=new String(e.getData(),StandardCharsets.UTF_8); String p=e.getPath();
-        if(p.equals("/uc/ping")){sendToWatch("/uc/pong","phone");updateConnection(true);}
+        if(p.equals("/uc/ping")){sendToWatch("/uc/pong","phone-v27");updateConnection(true);}
         else if(p.equals("/uc/status")) js("window.UCWatchStatus&&window.UCWatchStatus('"+msg.replace("'","\\'")+"')");
-        else if(p.equals("/uc/cue")) js("window.UCWatchCue&&window.UCWatchCue()");
+        else if(p.equals("/uc/cue")) {
+            if("out".equalsIgnoreCase(msg)) js("window.UCWatchCueOut?window.UCWatchCueOut():window.UCWatchCue&&window.UCWatchCue()");
+            else js("window.UCWatchCue&&window.UCWatchCue()");
+        }
         else if(p.equals("/uc/profile")) js("window.UCWatchOpen&&window.UCWatchOpen('profile')");
         else if(p.equals("/uc/swap")) js("window.UCWatchOpen&&window.UCWatchOpen('swap')");
     }
-    @Override protected void onResume(){super.onResume();Wearable.getMessageClient(this).addListener(this);Wearable.getNodeClient(this).getConnectedNodes().addOnSuccessListener(n->updateConnection(!n.isEmpty()));}
+    @Override protected void onResume(){
+        super.onResume();
+        Wearable.getMessageClient(this).addListener(this);
+        Wearable.getNodeClient(this).getConnectedNodes().addOnSuccessListener(n->updateConnection(!n.isEmpty())).addOnFailureListener(e->updateConnection(false));
+    }
     @Override protected void onPause(){Wearable.getMessageClient(this).removeListener(this);super.onPause();}
     @Override protected void onActivityResult(int requestCode,int resultCode,Intent data){super.onActivityResult(requestCode,resultCode,data);if(requestCode==FILE_CHOOSER&&fileCallback!=null){Uri[] result=WebChromeClient.FileChooserParams.parseResult(resultCode,data);fileCallback.onReceiveValue(result);fileCallback=null;}}
     @Override public void onRequestPermissionsResult(int requestCode,String[] permissions,int[] grantResults){super.onRequestPermissionsResult(requestCode,permissions,grantResults);if(requestCode==CAMERA_PERMISSION&&pendingPermission!=null){if(grantResults.length>0&&grantResults[0]==PackageManager.PERMISSION_GRANTED) pendingPermission.grant(pendingPermission.getResources());else pendingPermission.deny();pendingPermission=null;}}
