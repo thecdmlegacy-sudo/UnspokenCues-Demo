@@ -30,21 +30,21 @@ jobs:
           gradle :wear:assembleDebug :wear:bundleRelease --stacktrace
       - name: Rename outputs
         run: |
-          cp phone-app/app/build/outputs/apk/debug/app-debug.apk Unspoken-Cues-Phone-v26.apk
-          cp phone-app/app/build/outputs/bundle/release/app-release.aab Unspoken-Cues-Phone-v26-UNSIGNED.aab
-          cp phone-app/wear/build/outputs/apk/debug/wear-debug.apk Unspoken-Cues-Watch-v1.apk
-          cp phone-app/wear/build/outputs/bundle/release/wear-release.aab Unspoken-Cues-Watch-v1-UNSIGNED.aab
+          cp phone-app/app/build/outputs/apk/debug/app-debug.apk Unspoken-Cues-Phone-v27.apk
+          cp phone-app/app/build/outputs/bundle/release/app-release.aab Unspoken-Cues-Phone-v27-UNSIGNED.aab
+          cp phone-app/wear/build/outputs/apk/debug/wear-debug.apk Unspoken-Cues-Watch-v2.apk
+          cp phone-app/wear/build/outputs/bundle/release/wear-release.aab Unspoken-Cues-Watch-v2-UNSIGNED.aab
       - uses: actions/upload-artifact@v4
         with:
-          name: Unspoken-Cues-Phone-Watch-v26
+          name: Unspoken-Cues-Phone-v27-Watch-v2
           path: |
-            Unspoken-Cues-Phone-v26.apk
-            Unspoken-Cues-Phone-v26-UNSIGNED.aab
-            Unspoken-Cues-Watch-v1.apk
-            Unspoken-Cues-Watch-v1-UNSIGNED.aab
+            Unspoken-Cues-Phone-v27.apk
+            Unspoken-Cues-Phone-v27-UNSIGNED.aab
+            Unspoken-Cues-Watch-v2.apk
+            Unspoken-Cues-Watch-v2-UNSIGNED.aab
       - name: Publish latest APKs
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete phone-app-latest --cleanup-tag -y || true
-          gh release create phone-app-latest Unspoken-Cues-Phone-v26.apk Unspoken-Cues-Watch-v1.apk --title 'Unspoken Cues Phone + Watch' --notes 'Phone v26 / 4.0.0 and Wear OS v1. Adds Google Wearable Data Layer connection for status, Cue-In/Out, profile and S.W.A.P. actions.'
+          gh release create phone-app-latest Unspoken-Cues-Phone-v27.apk Unspoken-Cues-Watch-v2.apk --title 'Unspoken Cues Phone v27 + Watch v2' --notes 'Updated companion and Wear OS build. Watch v2 adds higher-contrast availability colors, black text on yellow, darker purple, larger status controls, selected-state check marks, persistent status, visible Screen Lock, locked-control protection, Instant Cue-Out, haptic confirmation, debounce protection, connection checks, bidirectional status/cue sync, and version display. Phone v27 reports real watch connection state and improves watch cue syncing.'
