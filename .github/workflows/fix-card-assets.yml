@@ -1,0 +1,52 @@
+name: Fix card assets and UI
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/fix-card-assets.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode clean card and patch UI
+        run: |
+          mkdir -p assets/cards
+          base64 -d assets/cards/001-F2-front.b64.txt > assets/cards/001-F2-front-clean.jpg
+          python - <<'PY'
+          from pathlib import Path
+          import json
+
+          # Fix profile to use the clean, web-safe JPEG.
+          p = Path('profile.json')
+          data = json.loads(p.read_text())
+          data['cardImage'] = 'assets/cards/001-F2-front-clean.jpg'
+          data['updatedAt'] = '2026-08-29T20:30:00Z'
+          p.write_text(json.dumps(data, indent=2) + '\n')
+
+          # Fix the known preference/boundary button quoting bug in the editor.
+          a = Path('admin.html')
+          s = a.read_text()
+          s = s.replace("onclick=\"toggle('${t}',${JSON.stringify(v)})\"", "onclick=\"toggle('${t}','${v}')\"")
+          a.write_text(s)
+
+          # Let real card artwork define its own aspect ratio instead of forcing a placeholder-sized box.
+          app = Path('app.html')
+          s = app.read_text()
+          s = s.replace('min-height:210px;display:grid;place-items:center', 'min-height:0;display:grid;place-items:center')
+          s = s.replace('.swapbox img{display:block;width:100%;height:auto}', '.swapbox img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain}')
+          app.write_text(s)
+          PY
+      - name: Commit fixes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/cards/001-F2-front-clean.jpg profile.json admin.html app.html
+          git commit -m 'Fix real card rendering and editor controls' || exit 0
+          git push
