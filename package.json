@@ -1,0 +1,8 @@
+{
+  "name": "unspoken-cues-demo",
+  "private": true,
+  "version": "0.1.0",
+  "dependencies": {
+    "firebase-admin": "^13.4.0"
+  }
+}
