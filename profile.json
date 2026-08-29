@@ -1,7 +1,7 @@
 {
   "id": "cd",
   "name": "C&D",
-  "tagline": "The Disappearing Act",
+  "tagline": "",
   "bio": "Here for a good time—until we disappear. C&D are all about good vibes, genuine connections, and letting the night take them wherever it goes. If you're looking for us, you better catch us before we leave without saying goodbye.",
   "status": "available",
   "statusSymbol": "●",
@@ -74,11 +74,11 @@
   "qrLabel": "Scan or tap to connect",
   "cardNumber": "001-F2",
   "cardTitle": "The Disappearing Act",
-  "cardTagline": "We came, we saw, we left.",
+  "cardTagline": "We came, we saw, we left without saying goodbye.",
   "profileImage": "",
   "cardImage": "",
   "cardBackImage": "",
   "unspokenLogo": "",
   "swapLogo": "",
-  "updatedAt": "2026-08-27T23:55:00Z"
+  "updatedAt": "2026-08-29T19:10:00Z"
 }
