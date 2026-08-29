@@ -1,4 +1,4 @@
-package com.unspokencues.phone;
+package com.unspokencues.mobile;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
         webView.clearCache(true);
         webView.setWebViewClient(new WebViewClient());
         webView.setWebChromeClient(new WebChromeClient());
-        webView.loadUrl("https://thecdmlegacy-sudo.github.io/UnspokenCues-Demo/app.html?phone=v23");
+        webView.loadUrl("https://thecdmlegacy-sudo.github.io/UnspokenCues-Demo/app.html?phone=v24");
     }
 
     @Override
