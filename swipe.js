@@ -8,6 +8,11 @@
   let current = screens.findIndex(s => s.test(path));
   if (current < 0) return;
 
+  const extra=document.createElement('script');
+  if(path.endsWith('/app.html')) extra.src='backend-client.js?ts='+Date.now();
+  else if(path.endsWith('/admin.html')) extra.src='admin-cloud.js?ts='+Date.now();
+  if(extra.src) document.head.appendChild(extra);
+
   let startX = 0, startY = 0, startAt = 0;
   document.addEventListener('touchstart', e => {
     if (e.touches.length !== 1) return;
@@ -22,13 +27,8 @@
     const dy = e.changedTouches[0].clientY - startY;
     const elapsed = Date.now() - startAt;
     startAt = 0;
-
     if (elapsed > 850 || Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 1.25) return;
-
-    const next = dx < 0
-      ? (current + 1) % screens.length
-      : (current - 1 + screens.length) % screens.length;
-
+    const next = dx < 0 ? (current + 1) % screens.length : (current - 1 + screens.length) % screens.length;
     document.body.style.transition = 'opacity .12s ease, transform .12s ease';
     document.body.style.opacity = '.72';
     document.body.style.transform = `translateX(${dx < 0 ? '-12px' : '12px'})`;
