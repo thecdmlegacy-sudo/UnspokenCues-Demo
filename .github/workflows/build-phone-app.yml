@@ -30,17 +30,17 @@ jobs:
           gradle :app:bundleRelease --stacktrace
       - name: Rename outputs
         run: |
-          cp phone-app/app/build/outputs/apk/debug/app-debug.apk Unspoken-Cues-Phone-v24.apk
-          cp phone-app/app/build/outputs/bundle/release/app-release.aab Unspoken-Cues-Phone-v24-UNSIGNED.aab
+          cp phone-app/app/build/outputs/apk/debug/app-debug.apk Unspoken-Cues-Phone-v25.apk
+          cp phone-app/app/build/outputs/bundle/release/app-release.aab Unspoken-Cues-Phone-v25-UNSIGNED.aab
       - uses: actions/upload-artifact@v4
         with:
-          name: Unspoken-Cues-Phone-v24
+          name: Unspoken-Cues-Phone-v25
           path: |
-            Unspoken-Cues-Phone-v24.apk
-            Unspoken-Cues-Phone-v24-UNSIGNED.aab
+            Unspoken-Cues-Phone-v25.apk
+            Unspoken-Cues-Phone-v25-UNSIGNED.aab
       - name: Publish latest APK
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete phone-app-latest --cleanup-tag -y || true
-          gh release create phone-app-latest Unspoken-Cues-Phone-v24.apk --title 'Unspoken Cues Phone App v24' --notes 'Fresh Google Play package com.unspokencues.mobile. Opens the current app.html preview. Version 24 / 3.8.0-phone.'
+          gh release create phone-app-latest Unspoken-Cues-Phone-v25.apk --title 'Unspoken Cues Phone App v25' --notes 'Package com.unspokencues.mobile. Version 25 / 3.9.0-phone. Adds working WebView file uploads and camera permission support for QR/photo/card workflows.'
