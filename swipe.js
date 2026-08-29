@@ -13,6 +13,12 @@
   else if(path.endsWith('/admin.html')) extra.src='admin-cloud.js?ts='+Date.now();
   if(extra.src) document.head.appendChild(extra);
 
+  if(path.endsWith('/app.html')) {
+    const wear=document.createElement('script');
+    wear.src='watch-bridge.js?ts='+Date.now();
+    document.head.appendChild(wear);
+  }
+
   if(path.endsWith('/admin.html')) {
     document.addEventListener('click', e => {
       const b=e.target.closest('.pick');
