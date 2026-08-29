@@ -1,0 +1,1 @@
+Card asset refresh in progress. The app should use a clean web-safe card image file, not a text placeholder or malformed binary asset.
